@@ -59,7 +59,7 @@ export default function SearchBar({
 
   return (
     <div className="flex gap-4 items-center">
-      <div className="relative flex-1 max-w-2xl">
+      <div className="relative flex-1 max-w-[27rem]">
         <Input
           className="w-full px-10 h-8"
           value={query}
