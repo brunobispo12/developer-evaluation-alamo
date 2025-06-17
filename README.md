@@ -24,7 +24,7 @@
 ## 2. Requisitos
 
 - **Node.js ≥ 18.18**
-- **pnpm** (recomendado) ou npm/yarn
+- npm/yarn/pnpm
 - Navegador moderno
 
 ---
