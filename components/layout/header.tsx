@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <header className="max-w-screen-xl mx-auto w-full flex justify-between items-center py-6">
-      <h2 className="text-lg font-medium">{displayName}</h2>
+      <h2 className="font-medium">{displayName}</h2>
 
       <div className="flex items-center gap-4">
         <h2 className="text-xl font-medium text-primary">Alamo</h2>
