@@ -21,22 +21,7 @@
 
 ---
 
-## 2. Stack técnica
-
-| Camada | Tecnologias |
-|--------|-------------|
-| Front-end | **Next.js 14 App Router**, React 18, TypeScript |
-| UI/UX | **shadcn/ui** (Radix UI + Tailwind CSS), **Lucide-react** icons |
-| Feedback | **sonner** (*toast notifications*) |
-| Estado local | React `useState` (futuro: `zustand` ou `react-hook-form`) |
-| Lint/Format | ESLint, Prettier |
-| Testes (roadmap) | Vitest + Testing Library |
-
-> **Back-end & Banco**: este repositório contém somente a interface; endpoints REST/GraphQL e banco (PostgreSQL/Prisma) ficarão em outro serviço.
-
----
-
-## 3. Requisitos
+## 2. Requisitos
 
 - **Node.js ≥ 18.18**
 - **pnpm** (recomendado) ou npm/yarn
@@ -44,7 +29,7 @@
 
 ---
 
-## 4. Instalação
+## 3. Instalação
 
 ```bash
 # clone
