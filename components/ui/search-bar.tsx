@@ -3,6 +3,7 @@ import React, { useState, useEffect, ReactNode } from 'react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Search, Filter, X } from 'lucide-react'
+import { Separator } from '@radix-ui/react-separator'
 
 interface SearchBarProps {
   onSearch?: (query: string) => void
@@ -18,8 +19,8 @@ export default function SearchBar({
   onClear,
   currentQuery = '',
   filterComponent,
-  placeholder = "Pesquisar...",
-  realTimeSearch = true
+  placeholder = "",
+  realTimeSearch = false
 }: SearchBarProps) {
   const [query, setQuery] = useState(currentQuery)
   const [openFilter, setOpenFilter] = useState(false)
@@ -60,7 +61,7 @@ export default function SearchBar({
     <div className="flex gap-4 items-center">
       <div className="relative flex-1 max-w-2xl">
         <Input
-          className="w-full pl-10 pr-10"
+          className="w-full px-10 h-8"
           value={query}
           onChange={e => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
@@ -80,21 +81,14 @@ export default function SearchBar({
       </div>
 
       {!realTimeSearch && (
-        <Button className="w-24" onClick={handleSearch}>
+        <Button className="w-24 cursor-pointer h-8" onClick={handleSearch} >
           Buscar
         </Button>
       )}
-      
-      {query && (
-        <div className="text-sm text-gray-500 whitespace-nowrap">
-          Buscando por: <span className="font-medium">"{query}"</span>
-        </div>
-      )}
 
       <div className="relative">
-        <Button variant="ghost" onClick={() => setOpenFilter(prev => !prev)}>
-          <Filter className="w-5 h-5" />
-          Filtros
+        <Button variant="default" className='bg-black text-white hover:bg-black cursor-pointer h-8' onClick={() => setOpenFilter(prev => !prev)}>
+          Filtragem Avançada
         </Button>
         {openFilter && filterComponent && (
           <div className="absolute top-full mt-2 right-0 bg-white dark:bg-gray-700 border rounded shadow p-4 w-64 z-10">

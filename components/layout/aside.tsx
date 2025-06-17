@@ -17,7 +17,7 @@ export default function Aside() {
   }
 
   return (
-    <aside className='self-stretch w-64 border-r-2 p-2 flex flex-col'>
+    <aside className='self-stretch w-64 border-r-1 p-2 flex flex-col'>
       <UserBadge
         name='Bruno Bispo'
         avatarUrl='https://media.licdn.com/dms/image/v2/D4D03AQFFjd9Zx8ZSYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722604126328?e=1755734400&v=beta&t=f6LWpXxN-F1uTXWT04IkF1HSWBm-9mzmkJsEa1ta2I8'
@@ -55,7 +55,7 @@ export default function Aside() {
                             <li key={child.name} className='mb-1'>
                               <Link
                                 href={child.href!}
-                                onClick={() => handleClick(`${route.displayName} - ${child.displayName}`)}
+                                onClick={() => handleClick(`${route.displayName}`)}
                                 className='flex items-center px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md'
                               >
                                 <child.icon className='w-4 h-4 mr-2' />

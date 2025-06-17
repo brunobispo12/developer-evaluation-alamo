@@ -29,7 +29,7 @@ export default function Rotinas() {
           <h3 className="text-2xl font-medium text-gray-800">
             Gestão de rotinas de laboratório
           </h3>
-          <Button className="h-8" onClick={handleOpenSheet}>
+          <Button className="h-8 cursor-pointer" onClick={handleOpenSheet}>
             <Plus className="size-5" />
             Adicionar Rotina
           </Button>
@@ -40,7 +40,6 @@ export default function Rotinas() {
             onSearch={handleSearch}
             onClear={handleClearSearch}
             currentQuery={searchQuery}
-            placeholder='Buscar procedimentos, reagentes, observações...'
           />
         </div>
 

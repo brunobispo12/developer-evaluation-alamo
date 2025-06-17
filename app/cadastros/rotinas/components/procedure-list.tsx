@@ -96,7 +96,7 @@ export default function ProceduresList({ searchQuery = '' }: ProceduresListProps
   }
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col border-t py-5">
       {searchQuery && (
         <div className="flex-shrink-0 mb-4 p-3 bg-blue-50 rounded-lg border border-blue-200 ">
           <div className="flex justify-between items-center">
@@ -139,7 +139,7 @@ export default function ProceduresList({ searchQuery = '' }: ProceduresListProps
               {paginated.map((proc, idx) => (
                 <div
                   key={`${proc.time}-${proc.title}-${idx}`}
-                  className={`p-4 rounded-lg flex justify-between items-start transition-all duration-200 hover:shadow-md border ${idx % 2 === 1
+                  className={`p-4 h-[12.75rem] rounded-2xl  flex justify-between items-start transition-all duration-200 ${idx % 2 === 1
                     ? 'bg-gray-50  border-gray-200 '
                     : 'bg-white  border-gray-100 '
                     } ${searchQuery ? 'ring-1 ring-blue-200 ' : ''}`}
@@ -149,54 +149,49 @@ export default function ProceduresList({ searchQuery = '' }: ProceduresListProps
                       {highlightText(proc.time, searchQuery)} — {highlightText(proc.title, searchQuery)}
                     </div>
 
-                    <ul className="mt-2 space-y-1 text-gray-600 dark:text-gray-400 text-sm">
-                      {proc.steps.map((step, stepIdx) => (
-                        <li key={`${step.item}-${stepIdx}`} className="flex justify-between">
-                          <span>{highlightText(step.item, searchQuery)}</span>
-                          <span className="text-gray-500 ml-2">
-                            {highlightText(step.amount, searchQuery)}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {proc.observations && proc.observations.length > 0 && (
-                      <div className="mt-3 p-2 bg-amber-50 rounded border-l-2 border-amber-400">
-                        <div className="text-xs font-medium text-amber-800  mb-1">
-                          Observações:
-                        </div>
-                        {proc.observations.map((obs, obsIdx) => (
-                          <div key={obsIdx} className="text-xs text-amber-700 ">
-                            • {highlightText(obs, searchQuery)}
-                          </div>
+                    <div className='pl-6'>
+                      <ul className="mt-2 space-y-1 text-gray-700 dark:text-gray-400 text-sm">
+                        {proc.steps.map((step, stepIdx) => (
+                          <li key={`${step.item}-${stepIdx}`} className="flex">
+                            <span>{highlightText(step.item, searchQuery)} </span>
+                            <span className='mx-2'> - </span>
+                            <span className="">
+                              {highlightText(step.amount, searchQuery)}
+                            </span>
+                          </li>
                         ))}
-                      </div>
-                    )}
+                      </ul>
+                      {proc.observations?.length > 0 && (
+                        <div className="mt-2 text-xs text-muted-foreground">
+                          <span className="">Observações: </span>
+                          {highlightText(proc.observations.join(', '), searchQuery)}
+                        </div>
+                      )}
+                    </div>
                   </div>
 
-                  <div className="ml-6 flex-shrink-0 text-right text-sm space-y-1 min-w-[120px]">
-                    <div className="grid grid-cols-2 gap-2 text-xs">
-                      <div className="bg-green-100  p-1 rounded">
-                        <div className="text-green-800 ">CHO</div>
-                        <div className="font-semibold text-green-900 ">
+                  <div className="ml-6 flex-shrink-0 text-right text-sm space-y-1 min-w-[120px] h-full pb-10">
+                    <div className="flex flex-col items-center justify-around h-full">
+                      <div className="p-1 flex">
+                        <div className="">CHO:</div>
+                        <div className=" ">
                           {highlightText(proc.metrics.CHO, searchQuery)}
                         </div>
                       </div>
-                      <div className="bg-blue-100  p-1 rounded">
-                        <div className="text-blue-800 ">PTN</div>
-                        <div className="font-semibold text-blue-900 ">
+                      <div className="p-1 flex">
+                        <div className="">PTN:</div>
+                        <div className=" ">
                           {highlightText(proc.metrics.PTN, searchQuery)}
                         </div>
                       </div>
-                      <div className="bg-purple-100  p-1 rounded">
-                        <div className="text-purple-800 ">LIP</div>
-                        <div className="font-semibold text-purple-900 ">
+                      <div className="p-1 flex">
+                        <div className="">LIP:</div>
+                        <div className=" ">
                           {highlightText(proc.metrics.LIP, searchQuery)}
                         </div>
                       </div>
-                      <div className="bg-orange-100  p-1 rounded">
-                        <div className="text-orange-800 ">ABS</div>
-                        <div className="font-semibold text-orange-900 cursor-pointer hover:underline">
+                      <div className="p-1 flex">
+                        <div className=" text-primary cursor-pointer hover:underline">
                           {highlightText(proc.metrics.absorbance, searchQuery)}
                         </div>
                       </div>
@@ -210,7 +205,7 @@ export default function ProceduresList({ searchQuery = '' }: ProceduresListProps
       </div>
 
       {filteredData.length > 0 && totalPages > 1 && (
-        <div className="flex-shrink-0 border-t bg-white p-4">
+        <div className="flex-shrink-0 border-t bg-white p-4 mt-5">
           <div className="flex justify-between items-center">
             <div className="text-sm text-gray-600 ">
               Mostrando {start + 1}-{Math.min(start + pageSize, filteredData.length)} de {filteredData.length} resultados
