@@ -1,4 +1,3 @@
-// app/cadastros/rotinas/components/AddProcedureSheet.tsx
 'use client'
 
 import React, { useState } from 'react'
@@ -18,29 +17,8 @@ import { Separator } from '@/components/ui/separator'
 import { Badge } from '@/components/ui/badge'
 import { Plus, Minus, X, Clock, FileText, BarChart3, FlaskConical } from 'lucide-react'
 import { toast } from 'sonner'
+import type { Metrics, Procedure, Step } from '@/app/types/procedure'
 
-/* ---------- Types ---------- */
-type Metrics = {
-  CHO: string
-  PTN: string
-  LIP: string
-  absorbance: string
-}
-
-type Step = {
-  item: string
-  amount: string
-}
-
-type Procedure = {
-  time: string
-  title: string
-  steps: Step[]
-  observations: string[]
-  metrics: Metrics
-}
-
-/* ---------- Component ---------- */
 export default function AddProcedureSheet({
   open,
   onOpenChange,
@@ -56,7 +34,6 @@ export default function AddProcedureSheet({
     metrics: { CHO: '', PTN: '', LIP: '', absorbance: '' },
   })
 
-  /* ----- handlers ----- */
   const handleAddStep = () =>
     setProcedure(p => ({ ...p, steps: [...p.steps, { item: '', amount: '' }] }))
 
@@ -129,7 +106,6 @@ export default function AddProcedureSheet({
         </SheetHeader>
 
         <div className="space-y-6 p-5">
-          {/* Informações Básicas */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <FileText className="h-4 w-4 text-blue-600" />
@@ -164,7 +140,6 @@ export default function AddProcedureSheet({
             </div>
           </div>
 
-          {/* Passos */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -225,7 +200,6 @@ export default function AddProcedureSheet({
             </div>
           </div>
 
-          {/* Observações */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -274,7 +248,6 @@ export default function AddProcedureSheet({
             </div>
           </div>
 
-          {/* Métricas */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <BarChart3 className="h-4 w-4 text-purple-600" />
@@ -298,7 +271,6 @@ export default function AddProcedureSheet({
 
         <Separator className="my-4" />
 
-        {/* Rodapé */}
         <SheetFooter className="gap-2 pt-4">
           <Button
             type="button"

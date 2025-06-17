@@ -49,7 +49,6 @@ export default function Rotinas() {
         </div>
       </div>
 
-      {/* Sheet renderizado via portal no body */}
       <AddProcedureSheet
         open={sheetOpen}
         onOpenChange={setSheetOpen}
