@@ -88,7 +88,7 @@ export default function ProceduresList({ searchQuery = '' }: ProceduresListProps
 
     return parts.map((part, index) =>
       regex.test(part) ? (
-        <mark key={index} className="bg-yellow-200 dark:bg-yellow-900 rounded">
+        <mark key={index} className="bg-yellow-200 rounded">
           {part}
         </mark>
       ) : part
@@ -98,9 +98,9 @@ export default function ProceduresList({ searchQuery = '' }: ProceduresListProps
   return (
     <div className="h-full flex flex-col">
       {searchQuery && (
-        <div className="flex-shrink-0 mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+        <div className="flex-shrink-0 mb-4 p-3 bg-blue-50 rounded-lg border border-blue-200 ">
           <div className="flex justify-between items-center">
-            <span className="text-sm text-blue-800 dark:text-blue-200">
+            <span className="text-sm text-blue-800 ">
               {filteredData.length > 0 ? (
                 <>
                   Encontrados <strong>{filteredData.length}</strong> resultado(s) para{' '}
@@ -140,12 +140,12 @@ export default function ProceduresList({ searchQuery = '' }: ProceduresListProps
                 <div
                   key={`${proc.time}-${proc.title}-${idx}`}
                   className={`p-4 rounded-lg flex justify-between items-start transition-all duration-200 hover:shadow-md border ${idx % 2 === 1
-                    ? 'bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700'
-                    : 'bg-white dark:bg-gray-950 border-gray-100 dark:border-gray-800'
-                    } ${searchQuery ? 'ring-1 ring-blue-200 dark:ring-blue-800' : ''}`}
+                    ? 'bg-gray-50  border-gray-200 '
+                    : 'bg-white  border-gray-100 '
+                    } ${searchQuery ? 'ring-1 ring-blue-200 ' : ''}`}
                 >
                   <div className="flex-1">
-                    <div className="font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <div className="font-medium text-gray-700  mb-2">
                       {highlightText(proc.time, searchQuery)} — {highlightText(proc.title, searchQuery)}
                     </div>
 
@@ -161,12 +161,12 @@ export default function ProceduresList({ searchQuery = '' }: ProceduresListProps
                     </ul>
 
                     {proc.observations && proc.observations.length > 0 && (
-                      <div className="mt-3 p-2 bg-amber-50 dark:bg-amber-900/20 rounded border-l-2 border-amber-400">
-                        <div className="text-xs font-medium text-amber-800 dark:text-amber-200 mb-1">
+                      <div className="mt-3 p-2 bg-amber-50 rounded border-l-2 border-amber-400">
+                        <div className="text-xs font-medium text-amber-800  mb-1">
                           Observações:
                         </div>
                         {proc.observations.map((obs, obsIdx) => (
-                          <div key={obsIdx} className="text-xs text-amber-700 dark:text-amber-300">
+                          <div key={obsIdx} className="text-xs text-amber-700 ">
                             • {highlightText(obs, searchQuery)}
                           </div>
                         ))}
@@ -176,27 +176,27 @@ export default function ProceduresList({ searchQuery = '' }: ProceduresListProps
 
                   <div className="ml-6 flex-shrink-0 text-right text-sm space-y-1 min-w-[120px]">
                     <div className="grid grid-cols-2 gap-2 text-xs">
-                      <div className="bg-green-100 dark:bg-green-900/30 p-1 rounded">
-                        <div className="text-green-800 dark:text-green-300">CHO</div>
-                        <div className="font-semibold text-green-900 dark:text-green-100">
+                      <div className="bg-green-100  p-1 rounded">
+                        <div className="text-green-800 ">CHO</div>
+                        <div className="font-semibold text-green-900 ">
                           {highlightText(proc.metrics.CHO, searchQuery)}
                         </div>
                       </div>
-                      <div className="bg-blue-100 dark:bg-blue-900/30 p-1 rounded">
-                        <div className="text-blue-800 dark:text-blue-300">PTN</div>
-                        <div className="font-semibold text-blue-900 dark:text-blue-100">
+                      <div className="bg-blue-100  p-1 rounded">
+                        <div className="text-blue-800 ">PTN</div>
+                        <div className="font-semibold text-blue-900 ">
                           {highlightText(proc.metrics.PTN, searchQuery)}
                         </div>
                       </div>
-                      <div className="bg-purple-100 dark:bg-purple-900/30 p-1 rounded">
-                        <div className="text-purple-800 dark:text-purple-300">LIP</div>
-                        <div className="font-semibold text-purple-900 dark:text-purple-100">
+                      <div className="bg-purple-100  p-1 rounded">
+                        <div className="text-purple-800 ">LIP</div>
+                        <div className="font-semibold text-purple-900 ">
                           {highlightText(proc.metrics.LIP, searchQuery)}
                         </div>
                       </div>
-                      <div className="bg-orange-100 dark:bg-orange-900/30 p-1 rounded">
-                        <div className="text-orange-800 dark:text-orange-300">ABS</div>
-                        <div className="font-semibold text-orange-900 dark:text-orange-100 cursor-pointer hover:underline">
+                      <div className="bg-orange-100  p-1 rounded">
+                        <div className="text-orange-800 ">ABS</div>
+                        <div className="font-semibold text-orange-900 cursor-pointer hover:underline">
                           {highlightText(proc.metrics.absorbance, searchQuery)}
                         </div>
                       </div>
@@ -210,9 +210,9 @@ export default function ProceduresList({ searchQuery = '' }: ProceduresListProps
       </div>
 
       {filteredData.length > 0 && totalPages > 1 && (
-        <div className="flex-shrink-0 border-t bg-white dark:bg-gray-950 p-4">
+        <div className="flex-shrink-0 border-t bg-white p-4">
           <div className="flex justify-between items-center">
-            <div className="text-sm text-gray-600 dark:text-gray-400">
+            <div className="text-sm text-gray-600 ">
               Mostrando {start + 1}-{Math.min(start + pageSize, filteredData.length)} de {filteredData.length} resultados
             </div>
 
@@ -220,7 +220,7 @@ export default function ProceduresList({ searchQuery = '' }: ProceduresListProps
               <button
                 onClick={handlePrev}
                 disabled={page === 0}
-                className="px-3 py-1 rounded-md bg-gray-200 dark:bg-gray-700 disabled:opacity-50 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors disabled:cursor-not-allowed"
+                className="px-3 py-1 rounded-md bg-gray-200  disabled:opacity-50 hover:bg-gray-300  transition-colors disabled:cursor-not-allowed"
               >
                 Anterior
               </button>
@@ -240,7 +240,7 @@ export default function ProceduresList({ searchQuery = '' }: ProceduresListProps
                       onClick={() => setPage(pageNum)}
                       className={`px-3 py-1 rounded-md transition-colors ${pageNum === page
                         ? 'bg-primary text-white'
-                        : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
+                        : 'bg-gray-100  hover:bg-gray-200'
                         }`}
                     >
                       {pageNum + 1}
@@ -252,7 +252,7 @@ export default function ProceduresList({ searchQuery = '' }: ProceduresListProps
               <button
                 onClick={handleNext}
                 disabled={page >= totalPages - 1}
-                className="px-3 py-1 rounded-md bg-gray-200 dark:bg-gray-700 disabled:opacity-50 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors disabled:cursor-not-allowed"
+                className="px-3 py-1 rounded-md bg-gray-200 disabled:opacity-50 hover:bg-gray-300 transition-colors disabled:cursor-not-allowed"
               >
                 Próximo
               </button>

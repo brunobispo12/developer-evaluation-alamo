@@ -1,6 +1,5 @@
 import type { Procedures } from "@/app/types/procedure";
 
-// Dados dos procedimentos expandidos (20 itens)
 export const procedures: Procedures = [
   {
     time: "08:00",
