@@ -18,7 +18,7 @@ export const routes: AppRoute[] = [
     icon: PencilIcon,
     displayName: 'Cadastros',
     children: [
-      { name: 'Rotinas', href: '/cadastros/rotinas', icon: Repeat, displayName: 'Rotinas' },
+      { name: 'Rotinas', href: '/cadastros/rotinas', icon: Repeat, displayName: '' },
     ],
   },
 ]
